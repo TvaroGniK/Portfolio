@@ -1,0 +1,23 @@
+.delete-modal__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-modal__title {
+  margin-bottom: 11px;
+}
+
+.delete-modal__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--text-color);
+  max-width: 275px;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 25px;
+}
+
+

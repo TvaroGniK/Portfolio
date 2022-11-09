@@ -1,0 +1,170 @@
+.clients__table {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.client__item{
+  align-items: center;
+  display: flex;
+  padding: 18px;
+  background-color: var(--light-color);
+  border-bottom: 1px solid var(--grey-color);
+}
+
+.client__id{
+  width: 4%;
+  display: flex;
+  align-self: center;
+  font-size: 12px;
+  margin-right: 28px;
+  color: var(--text-grey-color);
+}
+
+.client__full-name {
+  min-width: 230px;
+  margin-right: auto;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.client__full-name span {
+  display: inline-block;
+}
+
+.client__full-name span:not(:last-child) {
+  margin-right: 5px;
+}
+
+.client__created {
+  width: calc(13%);
+  padding-left: 10px;
+}
+
+.client__changed {
+  width: calc(13%);
+  padding-left: 25px;
+}
+
+.created__date,
+.changed__date {
+  margin-right: 7px;
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.created__time,
+.changed__time {
+  font-size: 14px;
+  color: var(--text-grey-color);
+}
+
+.client__contacts {
+  margin: -10px 2px -17px 0;
+  margin-left: 30px;
+  max-width: 120px;
+  min-width: 120px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.client__action {
+  display: flex;
+  align-items: center;
+}
+
+.client__action button {
+  display: inline-block;
+  position: relative;
+  font-size: 14px;
+  padding-left: 20px;
+  background-repeat: no-repeat;
+  background-position: left  top;
+  background-color: transparent;
+  color: var(--text-color);
+}
+
+.client__edit {
+  margin-right: 32px;
+  background-image: url(/img/pain.svg);
+  transition: all 0.2s ease-in-out;
+}
+
+.client__delete {
+  margin-right: 32px;
+  background-image: url(/img/cancel.svg);
+  transition: all 0.2s ease-in-out;
+}
+
+.client__edit:hover {
+  transition: all 0.2s ease-in-out;
+  color: var(--accent-color);
+}
+
+.client__delete:hover {
+  transition: all 0.2s ease-in-out;
+  color: var(--warring-color);
+}
+
+.contact__link {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  margin-bottom: 7px;
+  margin-right: 5px;
+  transition: all 0.2s ease-in-out;
+}
+
+
+.contact__link g,
+.contact__link path {
+  transition: all 0.2s ease-in-out;
+}
+
+.contact__link:hover g,
+.contact__link:hover path {
+  transition: all 0.2s ease-in-out;
+  opacity: 1;
+}
+
+.actions__spiner {
+  position: absolute;
+  display: none;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  left: 0;
+  animation: spiner 1s ease-in-out;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.client__edit .actions__spiner svg {
+  stroke: var(--accent-color);
+  width: 15px;
+  height: 15px;
+  fill: none;
+}
+
+
+.client__delete .actions__spiner svg {
+  stroke: var(--warring-color);
+  width: 15px;
+  height: 15px;
+  fill: none;
+}
+
+@keyframes spiner {
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+
+.action-wait {
+  background-image: none;
+}
+
+

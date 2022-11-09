@@ -1,0 +1,108 @@
+@media (max-width: 1023px) {
+  .thead-info__item--id {
+    margin-left: 0;
+  }
+
+  .thead-info__item--name {
+    min-width: 200px;
+    padding-left: 5px;
+    background-position: right 33px center;
+  }
+
+  .thead-info__item--create-date {
+    padding-left: 15px;
+  }
+  .thead-info__item--change-date {
+    margin-right: 0;
+  }
+
+  .thead-info__item--contacts {
+    padding-left: 50px;
+  }
+
+  .thead-info__item--action {
+    padding-left: 35px;
+    padding-right: 50px;
+  }
+
+  .client__item {
+    padding: 10px;
+  }
+
+  .client__full-name {
+    min-width: 0;
+    max-width: 200px;
+  }
+
+  .client__created,
+  .client__changed {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .client__action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+  }
+}
+
+
+
+@media  (max-width: 769px) {
+  .clients__wrapper {
+    overflow: auto;
+  }
+
+  .clients__table {
+    min-width: 730px;
+  }
+}
+
+
+@media  (max-width: 500px) {
+  .header__form {
+    display: none;
+  }
+  .header__container  {
+    justify-content: center;
+  }
+
+  .logo {
+    margin-right: 0px;
+  }
+
+ .modal__content {
+  max-width: 375px;
+ }
+
+ .modal__form {
+  width: 315px;
+ }
+
+ .contact {
+  width: 315px;
+ }
+}
+
+
+@media  (max-width: 390px) {
+  .modal__content {
+   max-width: 315px;
+  }
+
+  .modal__form {
+   width: 255px;
+  }
+
+  .contact {
+   width: 280px;
+  }
+
+  .delete-modal__content{
+    min-width: 270px;
+  }
+ }

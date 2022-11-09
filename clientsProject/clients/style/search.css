@@ -1,0 +1,48 @@
+.header__inner {
+  position: relative;
+  width: 100%;
+}
+
+.find-list {
+  list-style-type: none;
+  max-height: 180px;
+  overflow: auto;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  max-width: 580px;
+  top: 44px;
+  left: 0;
+  width: 100%;
+  z-index: 50;
+  /* background-color: rgba(199, 192, 192, 0.5);
+  background-color: white; */
+  background-color: rgba(228, 222, 222, 0.8);
+  padding: 10px;
+}
+
+.find-list__link{
+  margin-bottom: 5px;
+  height: 20px;
+  color: var(--text-color);
+  font-size: 14px;
+  line-height: 22px;
+  border-bottom: 1px solid  var(--grey-color);
+  width: 100%;
+}
+
+.find-list__item {
+  /* border-bottom: 1px solid  var(--grey-color); */
+  display: flex;
+
+}
+
+
+
+.hide {
+  display: none;
+}
+
+.bg {
+  background-color: aqua;
+}
