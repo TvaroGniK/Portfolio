@@ -1,0 +1,91 @@
+.trainers {
+  &__wrapper {
+    padding-left: max(15px, calc((100% - var(--content-width)) /2 ));
+  }
+
+  &__content {
+    margin-bottom: 75px;
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 160%;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+  }
+
+  &__posts {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 160%;
+    margin-bottom: 20px;
+    color: var(--text-color);
+  }
+
+  &__btn {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 160%;
+    color: var(--accent-color);
+  }
+
+  &__image {
+    max-height: 500px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+  }
+
+  &__scroll {
+    width: 360px;
+    height: 5px;
+    border-radius: 40px;
+    background: rgba(20, 16, 36, 0.08);
+
+  }
+
+  .swiper-slide {
+    width: 360px;
+
+    @include small-tablet {
+      width: 220px;
+    }
+  }
+
+
+
+
+  .swiper-scrollbar-drag {
+    background: #141024;
+    border-radius: 40px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  &__nav {
+    @include flex-all-sb;
+  }
+
+  &__btns {
+    @include flex-v-center;
+
+    @include mobile {
+      display: none
+    }
+  }
+
+  &__slider-btn {
+    @include bg-cover;
+    width: 40px;
+    height: 40px;
+    &--prev {
+      background-image: url("../img/prev.svg");
+    }
+    &--next {
+      background-image: url("../img/next.svg");
+    }
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+
+}

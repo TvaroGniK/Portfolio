@@ -1,0 +1,249 @@
+@import '_mixin.scss';
+
+.hero {
+  display: grid;
+  grid-template: $containerWidth;
+  padding-bottom: 60px;
+  padding-top: 40px;
+  &__container {
+    padding: 0 30px;
+    display: grid;
+    grid-column: 2 / 3;
+  }
+}
+
+.gallery {
+
+  &__list {
+    display: grid;
+    grid-template-columns:repeat(12, 1fr);
+   grid-auto-rows: auto;
+    gap: $gap;
+  }
+
+  &__title {
+    font-size: 24px;
+    line-height: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+
+  &__item {
+    position: relative;
+    align-self: end;
+
+  }
+
+  // &__img_big {
+  //   // height: 100%;
+
+  // }
+
+  &__item_1 {
+    align-self: auto;
+    grid-column: span 6;
+    grid-row: span 2;
+    background-image: url(../img/hero-1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__item_2 {
+    grid-column: span 6;
+  }
+  &__item_3 {
+    grid-column: span 3;
+  }
+  &__item_4 {
+    grid-column: span 3;
+  }
+
+
+ &__item-stick {
+    @include stick;
+ }
+
+}
+
+
+
+.gallery-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  padding-left: 60px;
+  padding-bottom: 60px;
+  padding-top: 30px;
+  padding-right: 20px;
+  color: $colorWhite;
+
+    &__name {
+      font-size: 16px;
+      line-height: 18.7px;
+      font-weight: 400;
+    }
+
+    &__title {
+      font-size: 36px;
+      line-height: 38px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      max-width: 380px;
+    }
+
+    &__btn {
+      max-width: 160px;
+      position: relative;
+      transition: all 0.1s ease-in-out;
+    }
+
+    &__btn:focus {
+      @include btnFocus;
+    }
+
+    &__btn:hover {
+      @include btnHover;
+    }
+
+    &__btn:active {
+      @include btnActive;
+    }
+
+
+}
+
+
+
+@media (max-width: 1024px) {
+  .gallery__item_1 {
+    background-image: url(../img/hero-1-1024.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .gallery-info {
+    padding-left: 30px;
+    padding-bottom: 30px;
+    padding-right: 10px;
+
+    &__title {
+      font-size: 36px;
+      line-height: 36px;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+
+  .gallery__item_1 {
+    background-image: url(../img/hero-1-768.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .gallery-info__title {
+    font-size: 34px;
+    line-height: 30px;
+    max-width: 240px;
+  }
+
+  .gallery__img_big {
+    height: 100%;
+  }
+
+}
+
+
+
+@media (max-width: 520px) {
+  .hero {
+    padding-bottom: 50px;
+    padding-top: 30px;
+    &__container {
+      padding: 0 20px;
+    }
+  }
+
+  .gallery {
+
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: auto;
+      gap: 30px;
+    }
+
+    &__item_1 {
+      background-image: url(../img/hero-1-768.jpg);
+      align-self: auto;
+      height: 422px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    &__item_2 {
+      grid-column: span 2;
+    }
+
+    &__item_3 {
+      grid-column: span 1;
+    }
+
+    &__item_4 {
+      grid-column: span 1;
+    }
+
+   &__item-stick {
+      @include stick;
+      top: 6px;
+      right: 6px;
+    }
+  }
+
+  .gallery-info__title {
+    max-width: 100%;
+  }
+
+}
+
+@media (max-width: 320px) {
+  .gallery__item_1 {
+    background-image: url(../img/hero-1-320.jpg);
+    grid-column: span 2;
+    grid-row: span 2; 
+    height: 422px;
+ }
+
+  .gallery__title {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  .gallery-info__title {
+    font-size: 24px;
+    line-height: 26px;
+    max-width: 170px;
+  }
+
+  .gallery-info__name{
+    font-size: 14px;
+    line-height: 16px;
+  }
+
+  .gallery-info__btn {
+    max-width: 145px;
+    font-size: 14px;
+    line-height: 16px;
+    padding: 9px 19px;
+  }
+}
+
+
+
+
+

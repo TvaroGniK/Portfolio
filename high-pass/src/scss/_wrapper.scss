@@ -1,0 +1,9 @@
+.wrapper {
+  display: grid;
+  grid-template: minmax(auto, auto) 1fr minmax(auto, auto) / 1fr;
+  min-height: 100%;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+}

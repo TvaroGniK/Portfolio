@@ -1,0 +1,167 @@
+@import "_variables.scss";
+@import '_mixin.scss';
+
+
+.footer {
+  grid-area: footer;
+  background-color: $colorBlack;
+  display: grid;
+  grid-template: $containerWidth;
+
+  &__container {
+    display: grid;
+    padding: 0 30px;
+    grid-column: 2 / 3;
+    grid-template-columns: repeat(12, 1fr);
+    gap: $gap;
+    padding-top: 24px;
+    padding-bottom: 16px;
+  }
+}
+
+.footer-logo {
+  grid-column: 1 / 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__info {
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    color: $colorGrey;
+    font-family: 'TTFirsNeue';
+  }
+
+}
+
+
+.footer-content {
+  grid-column: 5 / 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 400;
+  color: $colorGrey;
+    &__name {
+      color: $colorDate;
+    }
+}
+
+.footer-social {
+  grid-column: 11 / 13;
+
+  justify-self: flex-end;
+
+  &__title {
+    display: block;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+    color: $colorGrey;
+    margin-bottom: 8px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  &__item {
+    margin-right: 15px;
+  }
+
+}
+
+
+
+.footer-social__link:focus {
+  outline: none;
+}
+
+.footer-social__link:focus .footer-social-link__svg path{
+  fill: $colorFocus;
+}
+
+.footer-social-link__svg:hover path {
+  fill: $colorHover;
+}
+
+.footer-social__link:active .footer-social-link__svg path {
+  fill: $colorActive;
+}
+
+
+@media(max-width: 1024px) {
+
+  .footer__container {
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  .footer-logo {
+    grid-column: span 3;
+  }
+
+
+  .footer-content {
+    grid-column: span 3;
+  }
+
+  .footer-social {
+    grid-column: span 2;
+  }
+}
+
+
+
+@media(max-width: 768px) {
+
+  .footer__container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .footer-logo {
+    grid-column: span 3;
+  }
+  .footer-content {
+    display: none;
+
+  }
+  .footer-social {
+    grid-column: 5 / 7;
+  }
+}
+
+@media(max-width: 520px) {
+
+
+
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    padding: 0;
+    gap: 0;
+  }
+
+  .footer-logo {
+    grid-column: span 2;
+    align-items: center;
+    order: 2;
+    background-color: $colorInput;
+    padding: 14px 0 ;
+
+  }
+
+  .footer-social {
+    grid-column: span 2;
+    justify-self: center;
+    order: 1;
+    padding: 30px;
+  }
+
+
+}

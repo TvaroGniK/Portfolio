@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Сладер на чистом JS</title>
+    <link rel="stylesheet" href="./style.css">
+    <script defer src="./main.js"></script>
+</head>
+<body>
+  <div class="carousel-slider-wrapper">
+    <button class="prev" type="button" id="prev" onclick="arrowClick(-1)">&lsaquo;</button>
+    <div class="slider-scroller-wrap">
+        <div class="slider-scroller" id="gallery"> <!-- mask -->
+            <div class="slider-scroller-inner" id="wrapper">
+                <div class="item"><img src="https://newyse-res.cloudinary.com/image/upload///t_mcms_larger/f_auto/v1511188164/33-2426430.jpg"></div>
+                <div class="item"><img src="https://newyse-res.cloudinary.com/image/upload///t_mcms_larger/f_auto/v1511186177/33-2425761.jpg"></div>
+                <div class="item"><img src="https://newyse-res.cloudinary.com/image/upload///t_mcms_larger/f_auto/v1511186164/33-2425751.jpg"></div>
+                <div class="item"><img src="https://newyse-res.cloudinary.com/image/upload///t_mcms_larger/f_auto/v1511185761/33-2425646.jpg"></div>
+                <div class="item"><img src="https://newyse-res.cloudinary.com/image/upload///t_mcms_larger/f_auto/v1557227665/33-2893456.jpg"></div>
+                <div class="item"><img src="https://newyse-res.cloudinary.com/image/upload///t_mcms_larger/f_auto/v1511970254/33-2437550.jpg"></div>
+            </div>
+        </div>
+    </div>
+    <button  class="next" type="button" id="next" onclick="arrowClick(1)">&rsaquo;</button>
+</div>
+<ul id="indicators" class="">
+    <li onclick="changeCurrent(1)">1</li>
+    <li onclick="changeCurrent(2)">2</li>
+    <li onclick="changeCurrent(3)">3</li>
+    <li onclick="changeCurrent(4)">4</li>
+    <li onclick="changeCurrent(5)">5</li>
+    <li onclick="changeCurrent(6)">6</li>
+</ul>
+</body>
+</html>

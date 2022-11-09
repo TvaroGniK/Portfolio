@@ -1,0 +1,31 @@
+.header{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding-top: 30px;
+
+  &__container {
+    @include flex-all-sb;
+    @include hight-tablet {
+      justify-content: initial;
+    }
+  }
+
+  &__phone {
+    @include hight-tablet {
+      font-size: 0;
+      margin-left: auto;
+      margin-right: 10px;
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      background-image: url(../img/phone.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 24px 24px;
+    }
+  }
+}

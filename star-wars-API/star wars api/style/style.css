@@ -1,0 +1,217 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+body{
+  background-color: #0f0e17;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.header__title {
+  padding: 40px;
+  text-align: center;
+  margin: 0;
+  font-size: 62px;
+  font-weight: 400;
+}
+
+.header__link {
+  opacity: 0.8;
+  color: #fff;
+  transition: opacity 0.2s ease-in-out;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 12px #fff,
+    0 0 18px #fff,
+    0 0 42px rgb(255, 230, 0),
+    0 0 82px rgb(255, 230, 0),
+    0 0 120px rgb(255, 230, 0);
+}
+
+.header__link:hover {
+  opacity: 1;
+}
+
+.container {
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  width: 100%;
+  background-size: cover;
+  background-image: url(/img/main/background-main1.jpg);
+  padding: 40px;
+}
+
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.card {
+  background-color: rgb(187, 175, 161);
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-image: url(/img/1.jpg); */
+  background-color: #272731;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 5%;
+}
+
+.card__title {
+  font-size: 32px;
+  line-height: 120%;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card__link {
+  opacity: 0.8;
+  color: #fff;
+  transition: opacity 0.2s ease-in-out;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 42px rgb(255, 230, 0),
+    0 0 82px rgb(255, 230, 0);
+}
+
+.card__link:hover {
+  transition: opacity 0.2s ease-in-out;
+opacity: 1;
+}
+
+.card__text {
+  color: rgb(255 230 0);
+  /* color:aqua; */
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+
+.circle-core {
+  width: 100%;
+  height: 100%;
+  background-color: #0f0e17;
+  border-radius: 50%;
+}
+
+.circle-border {
+  width: 300px;
+  height: 300px;
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: rgb(254, 218, 74);
+  background: linear-gradient(0deg, rgba(63,249,220,0.1) 33%, rgba(254, 218, 74, 1) 100%);
+  animation: spin .8s linear 0s infinite;
+}
+
+.spinner-box {
+  width: 300px;
+  grid-area: loader;
+  margin: auto 0;
+  width: auto;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.loaded {
+	transition: 0.3s opacity;
+	display: none;
+}
+
+
+@keyframes spin {
+  from {
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(359deg);
+  }
+}
+
+
+.episod-wrapper {
+  padding: 30px 0;
+  border-bottom: 3px solid rgb(255 230 0);
+}
+
+
+.episod__description{
+  color: rgb(255 230 0);
+  font-size: 30px;
+  height: 100%;
+  margin-top: 30px;
+}
+
+.episod__title,
+.planets__title,
+.specieses__title,
+.vehicles__title {
+  padding: 30px 0;
+  font-size: 45px;
+  color: rgb(255 230 0);
+  text-shadow:
+  0 0 7px #fff,
+  0 0 12px #fff,
+  0 0 42px rgb(255, 230, 0),
+  0 0 120px rgb(255, 230, 0);
+  border-bottom: 3px solid rgb(255 230 0);
+}
+
+/* .episod__title {
+  border-bottom: none;
+} */
+
+.planets__list,
+.specieses__list,
+.vehicles__list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+  justify-items: center;
+  padding: 30px 0;
+  border-bottom: 3px solid rgb(255 230 0);
+}
+
+.planets__item,
+.specieses__item,
+.vehicles__item {
+  width: 260px;
+  height: 260px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.planets__text,
+.specieses__text,
+.vehicles__text {
+  display: flex;
+  color: rgb(255 230 0);
+  font-size: 27px;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+
+}

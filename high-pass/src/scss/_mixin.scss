@@ -1,0 +1,99 @@
+@mixin burgerStyle {
+.burger {
+  --burger-width: 20px;
+  --burger-height: 18px;
+  --burger-line-height: 2px;
+  position: relative;
+  border: none;
+  padding: 0;
+  width: var(--burger-width);
+  height: var(--burger-height);
+  color: $colorWhite;
+  background-color: transparent;
+  cursor: pointer;
+  overflow:hidden;
+}
+
+.burger::before, .burger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: var(--burger-line-height);
+  background-color: currentColor;
+  transition: transform 0.2s ease-in-out, top 0.2s ease-in-out;
+}
+
+.burger::before {
+  top: 0;
+  width: 100%;
+}
+.burger::after {
+  width: 60%;
+  top: calc(100% - var(--burger-line-height));
+}
+.burger__line {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 80%;
+  height: var(--burger-line-height);
+  background-color: currentColor;
+  transform: translateY(-50%);
+  transition: transform 0.2s ease-in-out;
+}
+.burger--active::before {
+  top: 50%;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease-in-out, top 0.2s ease-in-out;
+}
+.burger--active::after {
+  top: 50%;
+  transform: rotate(-45deg);
+  transition: transform 0.2s ease-in-out, top 0.2s ease-in-out;
+}
+.burger--active .burger__line {
+  transform: scale(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.burger:focus::after {
+  opacity: 1;
+}
+}
+
+
+@mixin styleShadow {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+@mixin stick {
+  right: 15px;
+  top: 15px;
+  padding: 7px 15px;
+  position: absolute;
+  color:$colorWhite;
+  background-color: $colorStick;
+}
+
+
+@mixin btnHover {
+  background-color: $colorFocus;
+  border: 3px solid $colorFocus;
+}
+
+@mixin btnActive {
+  background-color: $colorActive;
+  border: 3px solid $colorActive;
+}
+
+
+@mixin btnFocus {
+  outline: none;
+  border: 3px solid $colorActive;
+  background-color: $colorHover;
+}

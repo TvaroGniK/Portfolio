@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <!-- <script type="module">
+    import {createTodoApp} from './todoApp.js'
+    createTodoApp(document.getElementById('todo-app'), 'Дела мамы', 'Мама')
+  </script> -->
+
+  <script type="module">
+    import {createTodoApp} from './todo-app/view.js';
+    import{switchStorage} from './todo-app/storage.js';
+
+    const buttonStorage = document.getElementById('storage');
+    const owner = 'Mom';
+    const keyLS = 'Дела мамы';
+    let storage = JSON.parse(localStorage.getItem("isLocale"));
+
+    // local
+    import {
+      getTodoListFromLs,
+      createTodoItemFromLs,
+      switchTodoItemDoneFromLs,
+      deleteTodoItemFromLs
+    } from './todo-app/local.js';
+
+    //api
+    import {
+      getTodoList,
+      createTodoItem,
+      switchTodoItemDone,
+      deleteTodoItem
+    } from './todo-app/api.js';
+
+    if (storage ) {
+      buttonStorage.innerHTML = 'Перейти на серверное хранилище';
+      (async()=> {
+      const todoItemList = await getTodoListFromLs(keyLS);
+      createTodoApp(document.getElementById('todo-app'), {
+        title: keyLS,
+        owner,
+        todoItemList: todoItemList,
+        onCreateFormSubmit: createTodoItemFromLs,
+        onDoneClick: switchTodoItemDoneFromLs,
+        onDeleteClick: deleteTodoItemFromLs,
+      })
+      })();
+    } else {
+      buttonStorage.innerHTML = 'Перейти на локальное хранилище';
+      (async()=> {
+        const todoItemList = await getTodoList(owner);
+        createTodoApp(document.getElementById('todo-app'), {
+          title: keyLS,
+          owner,
+          todoItemList,
+          onCreateFormSubmit: createTodoItem,
+          onDoneClick: switchTodoItemDone,
+          onDeleteClick: deleteTodoItem,
+        });
+      })();
+    };
+
+    switchStorage(buttonStorage, storage, keyLS, owner);
+  </script>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a class="nav-link" href="index.html">Мои дела</a>
+      <a class="nav-link" href="mom.html">Дела мамы</a>
+      <a class="nav-link" href="dad.html">Дела папы</a>
+    </nav>
+  </div>
+  <div id="todo-app" class="container" >
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary btn-sm " id="storage">
+
+      </button>
+  </div>
+  </div>
+</body>
+</html>

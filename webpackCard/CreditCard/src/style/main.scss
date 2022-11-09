@@ -1,0 +1,196 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: Jost;
+    src: url('../assets/fonts/JostRegular.woff2');
+}
+
+
+:root {
+    --black: #000;
+    --primary: #21092f ;
+    --error: rgba(255, 82, 82, 1);
+    --white: #fff;
+}
+
+.btn-reset {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 30px;
+   
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    min-width: 270px;
+    font-family: Jost;
+
+    &-wrapper{
+        display: flex;
+        justify-content: center; 
+        width: 50%;
+    }
+}
+
+.input {
+    height: 30px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid var(--black); 
+    margin-bottom: 30px;
+    position: relative;
+
+    &-item {
+        position: relative;
+
+        &-title {
+            font-size: 16px;
+            font-weight: 600;
+        }
+    }
+
+    &-card {
+        padding: 0 10px;
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    &-error {
+        border-color: var(--error);
+    }
+}
+
+.error {
+    position: relative;
+
+    &_div {
+        position: absolute;
+        bottom: 10px;
+        color: var(--error);
+        font-size: 12px;
+        font-weight: 700;
+    }
+}
+
+.mask-wrapper-card::after {
+    content: 'ОШИБКА';
+    position: absolute;
+    left: 0;
+    bottom: 10px;
+}
+
+.pay-system_div {
+    position: absolute;
+    color: var(--primary);
+    bottom: 5px;
+    left: 5px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+
+
+.btn-pay {
+    padding: 0.7rem 2rem;
+    border-radius: 0.6rem;
+    border: none;
+    background-color: var(--primary);
+    color: var(--white);
+    width: 100%;
+
+    &:disabled {
+        background-color: rgba(33, 9, 47, 0.3);
+        cursor: default; 
+    }
+}
+
+.content-wrapper {
+    width: 50%;
+    justify-content: center;
+    display: flex;
+    position: relative;
+}
+
+.content-card-front {
+    z-index: 10;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    background-image: url('../assets/img/bg-card-front.png');
+    min-width: 360px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.card-front-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 30px;
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: var(--white);
+}
+
+.card-front-info {
+    display: flex;
+    width: 100%;
+    padding: 0 70px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 30px;
+}
+
+.card-front-paysystem,
+.card-front-date {
+    color: var(--white);
+}
+
+.content-card-back {
+    display: flex;
+    margin-top: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-image: url('../assets/img/bg-card-back.png');
+    min-width: 360px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 5;
+    top: 160px;
+    left: 30%;
+}
+
+.cvv {
+    color: var(--primary);
+    font-size: 20px;
+}

@@ -1,0 +1,55 @@
+@import "_variables.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "roboto", sans-serif;
+}
+
+img {
+  max-width: 100%;
+}
+
+ul,ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h1, h2, h3, h4 {
+  font-family: "TTFirsNeue";
+  margin: 0;
+}
+
+button {
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
+.btn {
+  padding: 13.5px 10px;
+  color: $colorWhite;
+  background-color: $colorHover;
+  border: 3px solid $colorHover;
+  word-break: break-all;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+
+
+

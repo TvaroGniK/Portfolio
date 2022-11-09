@@ -1,0 +1,11 @@
+.btn-list:not(last-child) {
+  margin-right: 3px;
+}
+
+.form-control {
+  margin-right: 4px;
+}
+
+.btn-disabled {
+height: 50px;
+}

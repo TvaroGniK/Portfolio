@@ -1,0 +1,52 @@
+.burger {
+  display: none;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+
+  &__line {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    border-radius: 100px;
+    height: 2px;
+    width: 26px;
+    background-color: var(--light-color);
+    transform: translateX(-50%) translateY(-50%);
+
+    &:first-child {
+    margin-top: -7px;
+    }
+
+    &:last-child {
+      margin-top: 7px;
+      width: 13px;
+      transform: translateX(-100%) translateY(-50%);
+    }
+  }
+
+  @include hight-tablet {
+    display: block;
+  }
+}
+
+.burger-close {
+  display: none;
+  position: absolute;
+  right: var(--container-offset);
+  top: 30px;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  background-image: url(../img/close.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 18px 18px;
+
+  @include hight-tablet {
+    display: block;
+  }
+}

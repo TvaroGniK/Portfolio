@@ -1,0 +1,122 @@
+.tariffs {
+  padding-top: 0;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 40px;
+
+    @include hight-tablet {
+      gap: 20px;
+    }
+
+    @include small-tablet {
+      grid-template-columns: repeat(8, 1fr);
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: 4 span;
+    // width: 360px;
+    // height: 460px;
+    border: 1px solid rgba(20, 16, 36, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+
+    &--current {
+      background-color: var(--dark-color);
+      border:var(--dark-color);
+
+      transform: scale(1.05);
+
+      .tariffs__subtitle {
+        color: var(--light-color);
+      }
+      .tariffs__price {
+        color: var(--light-color);
+      }
+      .tariffs__descr {
+        color: var(--light-color);
+      }
+
+      @include high-desktop{
+        transform: scale(1);
+      }
+
+
+    }
+
+    @include small-tablet {
+      grid-column: 8 span;
+    }
+  }
+
+  &__subtitle{
+    display: flex;
+    align-items: center;
+    margin: 0;
+    font-weight: 600;
+    font-size: 30px;
+    margin-bottom: 60px;
+    line-height: 160%;
+    text-align: center;
+    color: var(--dark-color);
+
+    &::before {
+      content: "";
+      display: block;
+      margin-right: 10px;
+      width: 15px;
+      height: 3px;
+      background-color: currentColor;
+    }
+    &::after {
+      content: "";
+      display: block;
+      margin-left: 10px;
+      width: 15px;
+      height: 3px;
+      background-color: currentColor;
+    }
+  }
+
+  &__price {
+    font-weight: 600;
+    font-size: 50px;
+    margin-bottom: 20px;
+    line-height: 160%;
+    text-align: center;
+    color: var(--dark-color);
+
+    @include high-desktop {
+      font-size: 45px;
+    }
+
+    @include hight-tablet {
+      font-size: 32px;
+    }
+  }
+
+  &__descr {
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 160%;
+    text-align: center;
+    color: var(--dark-color);
+    margin-bottom: auto;
+  }
+
+  &__btn{
+    margin-top: 60px;
+    min-width: 100%;
+
+    @include hight-tablet {
+     padding: 10px 20px;
+     font-size: 16px;
+    }
+  }
+}

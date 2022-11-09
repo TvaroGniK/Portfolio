@@ -1,0 +1,57 @@
+.tooltip {
+  margin-left: 10px;
+
+  &__btn {
+    @include flex-all-center;
+    width: 24px;
+    height: 24px;
+    background: rgba(20, 16, 36, 0.08);
+    border-radius: 100%;
+
+    svg {
+      width: 4px;
+      height: 14px;
+    }
+
+    &:focus {
+      + .tooltip__txt {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+
+    // делаем возмоным только для уст-в с мышкой
+    @include hover {
+      + .tooltip__txt {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+
+
+  }
+
+
+
+
+
+  &__txt {
+    border-radius: 5px;
+    padding: 15px 20px;
+    box-shadow: 0px 2px 8px rgba(20, 16, 36, 0.1);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 160%;
+    text-align: center;
+    color: var(--dark-color);
+    background: var(--light-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+
+  // &__btn:hover &__txt {
+  //   background-color: rebeccapurple;
+  // }
+}

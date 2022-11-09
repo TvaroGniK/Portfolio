@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <script type="module">
+    // ServerLS
+    import {createTodoApp} from './todo-app/view.js';
+    import{switchStorage} from './todo-app/storage.js';
+
+    // local
+    import {
+      getTodoListFromLs,
+      createTodoItemFromLs,
+      switchTodoItemDoneFromLs,
+      deleteTodoItemFromLs
+    } from './todo-app/local.js';
+
+    //api
+    import {
+      getTodoList,
+      createTodoItem,
+      switchTodoItemDone,
+      deleteTodoItem
+    } from './todo-app/api.js';
+
+    // необходимые глобальные переменные, у каждого свои
+    const buttonStorage = document.getElementById('storage');
+    const owner = 'Я';
+    const keyLS = 'Мои дела';
+    // создаем ключ для хранилища, через него проверяем какое хранилище открыть при запуске программы и не сбрасывать его при перезагрузке
+    let storage = JSON.parse(localStorage.getItem("isLocale"));
+
+    // проверяем по ключу storage какое хранилище нужно использовать при запусуке программы, если приложение открывается первый раз, то используется локальное хранилище
+    if (storage ) {
+      buttonStorage.innerHTML = 'Перейти на серверное хранилище';
+      (async()=> {
+      const todoItemList = await getTodoListFromLs(keyLS);
+      createTodoApp(document.getElementById('todo-app'), {
+        title: keyLS,
+        owner,
+        todoItemList: todoItemList,
+        onCreateFormSubmit: createTodoItemFromLs,
+        onDoneClick: switchTodoItemDoneFromLs,
+        onDeleteClick: deleteTodoItemFromLs,
+      })
+      })();
+    } else {
+      buttonStorage.innerHTML = 'Перейти на локальное хранилище';
+      (async()=> {
+        const todoItemList = await getTodoList(owner);
+        createTodoApp(document.getElementById('todo-app'), {
+          title: keyLS,
+          owner,
+          todoItemList,
+          onCreateFormSubmit: createTodoItem,
+          onDoneClick: switchTodoItemDone,
+          onDeleteClick: deleteTodoItem,
+        });
+      })();
+    };
+
+    // кнопка переключения хранилищ между собой
+    switchStorage(buttonStorage, storage, keyLS, owner);
+
+    // кнопка переключения хранилищ между собой, если убрать модуль
+    // function deleteList(list) {
+    //   while (list.childNodes.length != 2) {
+    //       list.removeChild(list.lastChild);
+    //       };
+    // }
+
+    // buttonStorage.addEventListener('click', ()=> {
+    //   if (storage ){
+    //     buttonStorage.innerHTML = 'Перейти на локальное хранилище';
+    //     storage = !storage;
+    //     localStorage.setItem("isLocale", storage);
+    //     let list =document.getElementById('todo-app')
+    //     deleteList(list);
+    //     // console.log(storage)
+    //   (async()=> {
+    //     const todoItemList = await getTodoList(owner);
+    //     createTodoApp(document.getElementById('todo-app'), {
+    //     title:'Мои дела',
+    //     owner,
+    //     todoItemList,
+    //     onCreateFormSubmit: createTodoItem,
+    //     onDoneClick: switchTodoItemDone,
+    //     onDeleteClick: deleteTodoItem,
+    //   })
+    //   })();
+    //   } else {
+    //     buttonStorage.innerHTML = 'Перейти на серверное хранилище';
+    //     storage = !storage;
+    //     localStorage.setItem("isLocale", storage);
+    //     let list =document.getElementById('todo-app')
+    //     deleteList(list);
+    //     (async()=> {
+    //     const todoItemList = await getTodoListFromLs(keyLS);
+    //     createTodoApp(document.getElementById('todo-app'), {
+    //     title: keyLS,
+    //     owner,
+    //     todoItemList: todoItemList,
+    //     onCreateFormSubmit: createTodoItemFromLs,
+    //     onDoneClick: switchTodoItemDoneFromLs,
+    //     onDeleteClick: deleteTodoItemFromLs,
+    //   })
+    //   })();
+    //   }
+    // })
+  </script>
+</head>
+<body>
+  <div class="container">
+    <nav class="nav">
+      <a class="nav-link" href="index.html">Мои дела</a>
+      <a class="nav-link" href="mom.html">Дела мамы</a>
+      <a class="nav-link" href="dad.html">Дела папы</a>
+    </nav>
+  </div>
+  <div id="todo-app" class="container">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <button class="btn btn-primary btn-sm local" id="storage">
+      </button>
+  </div>
+  </div>
+</body>
+</html>
